@@ -39,6 +39,7 @@ import {
     BookmarkIcon as BookmarkSolidIcon,
 } from "@heroicons/react/24/solid";
 import { useTranslation } from "react-i18next";
+import Footer from "../components/Footer";
 
 const ChefSecrets = () => {
     const { t } = useTranslation();
@@ -541,7 +542,7 @@ const ChefSecrets = () => {
     const stats = getStats();
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <div className="min-h-screen ">
             {/* Toast Notification */}
             <AnimatePresence>
                 {showToast && (
@@ -982,56 +983,7 @@ const ChefSecrets = () => {
             </section>
 
             {/* Footer */}
-            <footer className="mt-32 border-t border-gray-200 py-20 bg-white">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                        <div className="col-span-1 md:col-span-2">
-                            <Typography variant="h3" className="font-black text-3xl bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
-                                Chef<span className="text-red-500">Book</span>
-                            </Typography>
-                            <Typography className="text-gray-600 font-medium max-w-md">
-                                {t("footer.tagline")}
-                            </Typography>
-                            <div className="flex gap-4 mt-6">
-                                {['Instagram', 'Telegram', 'YouTube'].map((social, idx) => (
-                                    <div key={idx} className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-red-500 cursor-pointer group transition-all">
-                                        <span className="text-xs font-bold text-gray-600 group-hover:text-white">{social[0]}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div>
-                            <Typography className="font-bold text-gray-900 mb-4">{t("content")}</Typography>
-                            <div className="space-y-3">
-                                <Typography className="text-sm text-gray-500 hover:text-red-500 cursor-pointer transition-colors" onClick={() => { setSelectedCategory(t("categories.all")); window.scrollTo({ top: 600, behavior: 'smooth' }); }}>{t("allArticles")}</Typography>
-                                <Typography className="text-sm text-gray-500 hover:text-red-500 cursor-pointer transition-colors" onClick={() => { setSelectedCategory(t("categories.meat")); window.scrollTo({ top: 600, behavior: 'smooth' }); }}>{t("footer.recipes")}</Typography>
-                                <Typography className="text-sm text-gray-500 hover:text-red-500 cursor-pointer transition-colors">{t("tags.masterclass")}</Typography>
-                                <Typography className="text-sm text-gray-500 hover:text-red-500 cursor-pointer transition-colors">{t("footer.equipment")}</Typography>
-                            </div>
-                        </div>
-
-                        <div>
-                            <Typography className="font-bold text-gray-900 mb-4">{t("company")}</Typography>
-                            <div className="space-y-3">
-                                <Typography className="text-sm text-gray-500 hover:text-red-500 cursor-pointer transition-colors">{t("aboutUs")}</Typography>
-                                <Typography className="text-sm text-gray-500 hover:text-red-500 cursor-pointer transition-colors">{t("contact")}</Typography>
-                                <Typography className="text-sm text-gray-500 hover:text-red-500 cursor-pointer transition-colors">{t("privacyPolicy")}</Typography>
-                                <Typography className="text-sm text-gray-500 hover:text-red-500 cursor-pointer transition-colors">{t("terms")}</Typography>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="pt-10 border-t border-gray-100 text-center">
-                        <Typography className="text-gray-400 text-xs font-bold tracking-widest">
-                            © 2026 CHEFBOOK PREMIUM. {t("allRightsReserved")}
-                        </Typography>
-                        <Typography className="text-gray-400 text-xs mt-2">
-                            {t("dataSaved")}
-                        </Typography>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
 
             <style jsx>{`
                 .no-scrollbar::-webkit-scrollbar {
