@@ -49,7 +49,7 @@ export default function HowItWorks() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-32 bg-[#FBFBFF] dark:bg-gray-900 relative overflow-hidden transition-colors duration-500">
+    <section className="py-32  relative overflow-hidden transition-colors duration-500">
       {/* Background Decor */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-50 dark:bg-red-900/20 rounded-full blur-[120px] opacity-60" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-[120px] opacity-60" />

@@ -921,7 +921,7 @@ const Recipes2 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50  to-slate-100 text-slate-900">
       {/* Toast Notification */}
       {showToast && (
         <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-[60] animate-fadeInScale">
@@ -932,7 +932,7 @@ const Recipes2 = () => {
       )}
 
       <section className="container mx-auto px-4 py-12 lg:py-20">
-        <div className="animate-fadeInUp rounded-[32px] border border-slate-200 bg-white/95 p-5 shadow-lg backdrop-blur-sm sm:p-8 lg:p-12">
+        <div className="animate-fadeInUp rounded-[32px] border border-slate-200  p-5 shadow-lg backdrop-blur-sm sm:p-8 lg:p-12">
           {/* Header Section */}
           <div className="mb-12 animate-slideInRight">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">

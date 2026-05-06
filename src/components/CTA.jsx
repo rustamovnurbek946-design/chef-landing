@@ -8,7 +8,7 @@ export default function CTA() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 bg-gradient-to-r from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-t border-gray-100 dark:border-gray-800 transition-colors duration-500 overflow-hidden">
+    <section className="py-24  from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-t border-gray-100 dark:border-gray-800 transition-colors duration-500 overflow-hidden">
       <div className="container mx-auto px-4 text-center relative">
         
         {/* Dekorativ elementlar */}

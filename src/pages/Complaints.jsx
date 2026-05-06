@@ -1,45 +1,55 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { 
   Send, HelpCircle, MessageSquare, ShieldCheck, 
   ChevronDown, Paperclip, AlertCircle, Sparkles,
   Phone, Mail, Clock, MapPin, Search, LifeBuoy,
-  Camera, Award, Users, Star, ChefHat, HeartHandshake
+  Camera, Award, Users, Star, ChefHat, HeartHandshake, CheckCircle2
 } from "lucide-react";
 import Footer from "../components/Footer";
 
 // --- Animatsiya variantlari ---
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  exit: { opacity: 0, y: -30, transition: { duration: 0.4 } }
 };
 
 const Complaints = () => {
   const { t } = useTranslation();
+  const fileInputRef = useRef(null);
+
   const [formData, setFormData] = useState({
-    name: "", email: "", category: "general", subject: "", description: "", priority: "medium"
+    name: "",
+    email: "",
+    category: "general",
+    priority: "medium",
+    subject: "",
+    description: "",
+    attachment: null
   });
+
   const [submitted, setSubmitted] = useState(false);
   const [activeTab, setActiveTab] = useState("submit");
   const [searchQuery, setSearchQuery] = useState("");
-  const [hoveredFaq, setHoveredFaq] = useState(null);
 
-  // Murakkab Scroll Progress
+  // Scroll Progress
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   // --- Ma'lumotlar ---
   const categories = [
-    { value: "general", label: t("general"), icon: <MessageSquare size={18} />, color: "blue" },
-    { value: "technical", label: t("technicalProblem"), icon: <LifeBuoy size={18} />, color: "indigo" },
-    { value: "recipe", label: t("recipeProblem"), icon: <Sparkles size={18} />, color: "orange" },
-    { value: "content", label: t("wrongContent"), icon: <AlertCircle size={18} />, color: "red" },
+    { value: "general", label: t("general", "Общие вопросы"), icon: <MessageSquare size={18} /> },
+    { value: "technical", label: t("technicalProblem", "Тех. проблемы"), icon: <LifeBuoy size={18} /> },
+    { value: "recipe", label: t("recipeProblem", "Ошибки в рецептах"), icon: <Sparkles size={18} /> },
+    { value: "content", label: t("wrongContent", "Жалоба на контент"), icon: <AlertCircle size={18} /> },
+  ];
+
+  const priorities = [
+    { value: "low", label: t("low", "Низкий"), color: "bg-green-500/10 border-green-500/30 text-green-400 active:bg-green-500/20" },
+    { value: "medium", label: t("medium", "Средний"), color: "bg-yellow-500/10 border-yellow-500/30 text-yellow-400 active:bg-yellow-500/20" },
+    { value: "high", label: t("high", "Высокий"), color: "bg-red-500/10 border-red-500/30 text-red-400 active:bg-red-500/20" },
   ];
 
   const faqItems = [
@@ -53,8 +63,6 @@ const Complaints = () => {
     { id: 8, question: "Работает ли приложение офлайн?", answer: "Избранные рецепты сохраняются в кэш вашего устройства. Вы сможете просматривать шаги приготовления даже без доступа к интернету.", tags: ["Офлайн"] },
     { id: 9, question: "Как стать верифицированным шефом?", answer: "Вам нужно опубликовать минимум 15 уникальных рецептов с рейтингом выше 4.5 звезд. После этого появится кнопка подачи заявки.", tags: ["Верификация"] },
     { id: 10, question: "Где хранятся мои черновики?", answer: "Все неопубликованные рецепты автоматически сохраняются в облаке и доступны в разделе 'Черновики' вашего личного кабинета.", tags: ["Контент"] },
-    { id: 11, question: "Есть ли мобильное приложение?", answer: "Да, мы доступны в App Store и Google Play. Мобильная версия поддерживает push-уведомления о новых комментариях к вашим блюдам.", tags: ["Mobile"] },
-    { id: 12, question: "Как сообщить об оскорблении?", answer: "Нажмите на три точки рядом с комментарием и выберите 'Пожаловаться'. Наша команда рассмотрит жалобу в приоритетном порядке.", tags: ["Community"] },
   ];
 
   const filteredFaqs = faqItems.filter(f => 
@@ -62,7 +70,6 @@ const Complaints = () => {
     f.answer.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Bottom stats data
   const statsData = [
     { icon: <Users size={28} />, value: "50K+", label: "Активных поваров", color: "from-blue-500 to-cyan-500" },
     { icon: <HeartHandshake size={28} />, value: "99.9%", label: "Довольных клиентов", color: "from-rose-500 to-pink-500" },
@@ -76,24 +83,67 @@ const Complaints = () => {
     { name: "Елена М.", text: "Помогли восстановить доступ к аккаунту за 10 минут. Очень профессионально!", rating: 5, role: "Домашний кулинар" },
   ];
 
+  // --- Handlers ---
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setFormData(prev => ({ ...prev, attachment: e.target.files[0] }));
+    }
+  };
+
+  const triggerFileInput = () => {
+    fileInputRef.current.click();
+  };
+
   const onFormSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+    
+    // 4 soniyadan keyin formani tozalaymiz
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: "", email: "", category: "general", subject: "", description: "", priority: "medium" });
+      setFormData({
+        name: "",
+        email: "",
+        category: "general",
+        priority: "medium",
+        subject: "",
+        description: "",
+        attachment: null
+      });
     }, 4000);
   };
 
   return (
-    <div className="relative min-h-screen selection:bg-orange-500/30">
+    <div className="relative min-h-screen selection:bg-orange-500/30 text-white bg-slate-950">
+      
       {/* Scroll Progress Bar */}
-      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 z-[100] origin-left" style={{ scaleX }} />
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 z-[100] origin-left" 
+        style={{ scaleX }} 
+      />
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {submitted && (
+          <motion.div 
+            initial={{ opacity: 0, y: -50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.9 }}
+            className="fixed top-6 left-1/2 -translate-x-1/2 z-[110] flex items-center gap-3 px-6 py-4 bg-emerald-500 text-white rounded-2xl shadow-2xl border border-emerald-400/30 backdrop-blur-md"
+          >
+            <CheckCircle2 size={24} className="animate-bounce" />
+            <div>
+              <p className="font-bold">{t("success", "Запрос успешно отправлен!")}</p>
+              <p className="text-xs text-emerald-100">{t("successSub", "Мы свяжемся с вами в ближайшее время.")}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Background FX */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -107,14 +157,26 @@ const Complaints = () => {
         
         {/* Header Section */}
         <div className="max-w-5xl mx-auto text-center mb-16">
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
-            <ShieldCheck className="text-orange-400" size={16} />
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6"
+          >
+            <ShieldCheck className="text-orange-400 animate-pulse" size={16} />
             <span className="text-sm font-medium text-slate-300">Центр поддержки ChefBook 2.0</span>
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-6xl md:text-8xl font-black mb-8 tracking-tight">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            className="text-5xl md:text-7xl font-black mb-8 tracking-tight"
+          >
             Есть <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">вопросы?</span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed"
+          >
             Мы создаем лучший кулинарный опыт. Если что-то идет не так, наша команда готова помочь вам 24/7.
           </motion.p>
         </div>
@@ -133,7 +195,10 @@ const Complaints = () => {
               }`}
             >
               {activeTab === tab.id && (
-                <motion.div layoutId="activeTab" className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-[1.5rem] shadow-[0_10px_30px_rgba(234,88,12,0.3)]" />
+                <motion.div 
+                  layoutId="activeTab" 
+                  className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-[1.5rem] shadow-[0_10px_30px_rgba(234,88,12,0.3)]" 
+                />
               )}
               <span className="relative z-10">{tab.icon}</span>
               <span className="relative z-10">{tab.label}</span>
@@ -143,74 +208,142 @@ const Complaints = () => {
 
         <AnimatePresence mode="wait">
           {activeTab === "submit" ? (
-            <motion.section key="form-tab" initial="hidden" animate="visible" exit="hidden" variants={fadeInUp} className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12">
+            <motion.section 
+              key="form-tab" 
+              initial="hidden" 
+              animate="visible" 
+              exit="exit" 
+              variants={fadeInUp} 
+              className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12"
+            >
               
               {/* Form Side */}
               <div className="lg:col-span-7 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
                 <form onSubmit={onFormSubmit} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-2">
-                      <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Ваше Имя</label>
+                      <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-2">Ваше Имя</label>
                       <input 
-                        type="text" required name="name" value={formData.name} onChange={handleInputChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all placeholder:text-slate-600"
+                        type="text" 
+                        required 
+                        name="name" 
+                        value={formData.name} 
+                        onChange={handleInputChange}
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all placeholder:text-slate-600"
                         placeholder="Александр Шеф"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Email</label>
+                      <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-2">Email</label>
                       <input 
-                        type="email" required name="email" value={formData.email} onChange={handleInputChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all placeholder:text-slate-600"
+                        type="email" 
+                        required 
+                        name="email" 
+                        value={formData.email} 
+                        onChange={handleInputChange}
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all placeholder:text-slate-600"
                         placeholder="alex@chef.com"
                       />
                     </div>
                   </div>
 
+                  {/* Category Selection */}
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Категория обращения</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-2">Категория обращения</label>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {categories.map((cat) => (
                         <button
-                          key={cat.value} type="button"
+                          key={cat.value} 
+                          type="button"
                           onClick={() => setFormData({...formData, category: cat.value})}
                           className={`p-4 rounded-2xl border transition-all flex flex-col items-center gap-3 ${
                             formData.category === cat.value 
-                            ? "bg-orange-500/10 border-orange-500 text-orange-400" 
+                            ? "bg-orange-500/20 border-orange-500 text-orange-400 shadow-[0_4px_20px_rgba(234,88,12,0.15)]" 
                             : "bg-white/5 border-white/5 text-slate-400 hover:border-white/20"
                           }`}
                         >
                           {cat.icon}
-                          <span className="text-[10px] font-bold uppercase tracking-tighter">{cat.label}</span>
+                          <span className="text-[10px] font-bold uppercase tracking-tight text-center">{cat.label}</span>
                         </button>
                       ))}
                     </div>
                   </div>
 
+                  {/* Priority Selector */}
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Тема</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-2">Приоритет срочности</label>
+                    <div className="grid grid-cols-3 gap-4">
+                      {priorities.map((prio) => (
+                        <button
+                          key={prio.value}
+                          type="button"
+                          onClick={() => setFormData({...formData, priority: prio.value})}
+                          className={`py-3 px-4 rounded-xl border text-sm font-semibold transition-all ${prio.color} ${
+                            formData.priority === prio.value ? "ring-2 ring-offset-2 ring-offset-slate-900 ring-white/20 scale-95" : "opacity-60"
+                          }`}
+                        >
+                          {prio.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Subject */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-2">Тема</label>
                     <input 
-                      type="text" required name="subject" value={formData.subject} onChange={handleInputChange}
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-orange-500 transition-all"
+                      type="text" 
+                      required 
+                      name="subject" 
+                      value={formData.subject} 
+                      onChange={handleInputChange}
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-orange-500 transition-all placeholder:text-slate-600"
+                      placeholder="Кратко опишите проблему..."
                     />
                   </div>
 
+                  {/* Description */}
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Описание ситуации</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-400 ml-2">Описание ситуации</label>
                     <textarea 
-                      required name="description" value={formData.description} onChange={handleInputChange} rows="6"
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-orange-500 transition-all resize-none"
+                      required 
+                      name="description" 
+                      value={formData.description} 
+                      onChange={handleInputChange} 
+                      rows="6"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-orange-500 transition-all resize-none placeholder:text-slate-600"
                       placeholder="Расскажите нам подробно..."
                     />
                   </div>
 
+                  {/* File Attachment */}
+                  <div className="flex flex-col gap-2">
+                    <input 
+                      type="file" 
+                      ref={fileInputRef} 
+                      onChange={handleFileChange} 
+                      className="hidden" 
+                    />
+                    <button
+                      type="button"
+                      onClick={triggerFileInput}
+                      className="flex items-center justify-center gap-2 max-w-fit px-5 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-sm font-semibold text-slate-300 hover:text-white transition-all"
+                    >
+                      <Paperclip size={16} />
+                      {formData.attachment ? formData.attachment.name : "Прикрепить скриншот"}
+                    </button>
+                  </div>
+
+                  {/* Submit Button */}
                   <motion.button
+                    type="submit"
                     whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(234, 88, 12, 0.4)" }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-5 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl font-black text-lg uppercase tracking-[0.2em] relative overflow-hidden group"
+                    disabled={submitted}
+                    className="w-full py-5 bg-gradient-to-r from-orange-600 to-red-600 disabled:from-slate-700 disabled:to-slate-800 rounded-2xl font-black text-lg uppercase tracking-[0.2em] relative overflow-hidden group"
                   >
                     <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                    {submitted ? "Отправлено!" : "Отправить запрос"}
+                    {submitted ? "Запрос отправлен!" : "Отправить запрос"}
                   </motion.button>
                 </form>
               </div>
@@ -219,8 +352,8 @@ const Complaints = () => {
               <div className="lg:col-span-5 space-y-8">
                 <div className="p-8 bg-gradient-to-br from-indigo-600 to-blue-700 rounded-[2.5rem] shadow-xl relative overflow-hidden group">
                   <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
-                  <h3 className="text-2xl font-bold mb-4">Есть вопросы?</h3>
-                  <p className="text-indigo-100/80 mb-8 leading-relaxed">Мы готовы ответить на все ваши вопросы в месте под названием база знаний</p>
+                  <h3 className="text-2xl font-bold mb-4">Нужна база знаний?</h3>
+                  <p className="text-indigo-100/80 mb-8 leading-relaxed">Мы уже ответили на самые частые вопросы пользователей. Перейдите в раздел FAQ для быстрого поиска.</p>
                   <button 
                     onClick={() => setActiveTab('faq')}
                     className="flex items-center gap-3 px-6 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-indigo-50 transition-colors"
@@ -249,7 +382,13 @@ const Complaints = () => {
               </div>
             </motion.section>
           ) : (
-            <motion.section key="faq-tab" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-5xl mx-auto space-y-12">
+            <motion.section 
+              key="faq-tab" 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              className="max-w-5xl mx-auto space-y-12"
+            >
               
               {/* FAQ Search */}
               <div className="relative group">
@@ -257,51 +396,57 @@ const Complaints = () => {
                   <Search className="text-slate-500 group-focus-within:text-orange-500 transition-colors" />
                 </div>
                 <input 
-                  type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-[2rem] pl-16 pr-8 py-6 text-xl focus:outline-none focus:ring-4 focus:ring-orange-500/20 focus:border-orange-500 transition-all backdrop-blur-xl"
+                  type="text" 
+                  value={searchQuery} 
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-[2rem] pl-16 pr-8 py-6 text-xl text-white focus:outline-none focus:ring-4 focus:ring-orange-500/20 focus:border-orange-500 transition-all backdrop-blur-xl"
                   placeholder="Поиск по базе знаний..."
                 />
               </div>
 
               {/* FAQ Grid */}
               <div className="grid gap-6">
-                {filteredFaqs.map((faq) => (
-                  <motion.div 
-                    key={faq.id} layout
-                    onMouseEnter={() => setHoveredFaq(faq.id)}
-                    onMouseLeave={() => setHoveredFaq(null)}
-                    className="relative rounded-[2rem] border border-white/5 bg-slate-900/40 backdrop-blur-sm overflow-hidden hover:border-orange-500/50 transition-all duration-500"
-                  >
-                    <details className="group/details p-8">
-                      <summary className="flex items-center justify-between cursor-pointer list-none">
-                        <div className="flex items-center gap-6">
-                          <span className="text-4xl font-black text-white/10 group-open:text-orange-500/20 transition-colors">
-                            {faq.id < 10 ? `0${faq.id}` : faq.id}
-                          </span>
-                          <h3 className="text-xl font-bold text-slate-200 group-hover/details:text-white transition-colors">{faq.question}</h3>
+                {filteredFaqs.length > 0 ? (
+                  filteredFaqs.map((faq) => (
+                    <motion.div 
+                      key={faq.id} 
+                      layout
+                      className="relative rounded-[2rem] border border-white/5 bg-slate-900/40 backdrop-blur-sm overflow-hidden hover:border-orange-500/50 transition-all duration-500"
+                    >
+                      <details className="group/details p-8">
+                        <summary className="flex items-center justify-between cursor-pointer list-none">
+                          <div className="flex items-center gap-6">
+                            <span className="text-4xl font-black text-white/10 group-open:text-orange-500/20 transition-colors">
+                              {faq.id < 10 ? `0${faq.id}` : faq.id}
+                            </span>
+                            <h3 className="text-lg md:text-xl font-bold text-slate-200 group-hover/details:text-white transition-colors">{faq.question}</h3>
+                          </div>
+                          <div className="p-2 bg-white/5 rounded-full group-open/details:rotate-180 transition-transform duration-500">
+                            <ChevronDown size={24} />
+                          </div>
+                        </summary>
+                        <div className="mt-8 pl-0 md:pl-[4.5rem]">
+                          <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-3xl mb-6">{faq.answer}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {faq.tags.map(tag => (
+                              <span key={tag} className="px-3 py-1 bg-orange-500/10 text-orange-500 text-[10px] font-bold uppercase rounded-md tracking-widest">{tag}</span>
+                            ))}
+                          </div>
                         </div>
-                        <div className="p-2 bg-white/5 rounded-full group-open/details:rotate-180 transition-transform duration-500">
-                          <ChevronDown size={24} />
-                        </div>
-                      </summary>
-                      <div className="mt-8 pl-[4.5rem]">
-                        <p className="text-lg text-slate-400 leading-relaxed max-w-3xl mb-6">{faq.answer}</p>
-                        <div className="flex gap-2">
-                          {faq.tags.map(tag => (
-                            <span key={tag} className="px-3 py-1 bg-orange-500/10 text-orange-500 text-[10px] font-bold uppercase rounded-md tracking-widest">{tag}</span>
-                          ))}
-                        </div>
-                      </div>
-                    </details>
-                  </motion.div>
-                ))}
+                      </details>
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="text-center py-20 bg-slate-900/20 rounded-3xl border border-white/5">
+                    <AlertCircle size={48} className="mx-auto text-slate-600 mb-4" />
+                    <p className="text-slate-400 font-medium">Ничего не найдено по вашему запросу.</p>
+                  </div>
+                )}
               </div>
             </motion.section>
           )}
         </AnimatePresence>
 
-        {/* ============= YANGI ANIMATSIYALI PASTKI QISM ============= */}
-        
         {/* Stats Counter Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -320,7 +465,7 @@ const Complaints = () => {
               <Award size={16} />
               Наши достижения
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
               Мы в цифрах
             </h2>
           </motion.div>
@@ -345,7 +490,7 @@ const Complaints = () => {
                     initial={{ scale: 0.5 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-orange-400"
+                    className="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-orange-400"
                   >
                     {stat.value}
                   </motion.div>
@@ -373,7 +518,7 @@ const Complaints = () => {
               <HeartHandshake size={16} />
               Отзывы пользователей
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
               Что говорят наши клиенты
             </h2>
           </motion.div>
@@ -418,7 +563,7 @@ const Complaints = () => {
           </div>
         </motion.div>
 
-        {/* Floating Background Visuals - Yangilangan VA YAXSHI KO'RINADIGAN QILIB */}
+        {/* Feature Highlights Grid */}
         <div className="max-w-7xl mx-auto mt-40">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -464,16 +609,16 @@ const Complaints = () => {
           className="max-w-4xl mx-auto mt-40 mb-20"
         >
           <div className="relative p-12 text-center bg-gradient-to-r from-orange-600/20 to-red-600/20 backdrop-blur-xl border border-white/20 rounded-[3rem] overflow-hidden">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556911220-bda9f9f3b2a6?w=600')] bg-cover bg-center opacity-10" />
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556911220-bda9f9f3b2a6?w=600')] bg-cover bg-center opacity-10 pointer-events-none" />
             <motion.div 
               animate={{ 
                 scale: [1, 1.1, 1],
                 rotate: [0, 5, -5, 0]
               }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute top-10 right-10 w-20 h-20 bg-orange-500/30 rounded-full blur-3xl"
+              className="absolute top-10 right-10 w-20 h-20 bg-orange-500/30 rounded-full blur-3xl pointer-events-none"
             />
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Готовы начать готовить?</h3>
+            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">Готовы начать готовить?</h3>
             <p className="text-slate-300 mb-8">Присоединяйтесь к сообществу ChefBook уже сегодня</p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -490,16 +635,27 @@ const Complaints = () => {
 
       <Footer />
 
-      {/* Custom Styles for Hidden Browser UI */}
+      {/* Global CSS overrides */}
       <style jsx global>{`
         details > summary::-webkit-details-marker { display: none; }
+        details summary { list-style: none; }
+        
+        /* Smooth Details Open */
+        details[open] summary ~ * {
+          animation: sweep .3s ease-in-out;
+        }
+
+        @keyframes sweep {
+          0%    { opacity: 0; transform: translateY(-10px) }
+          100%  { opacity: 1; transform: translateY(0) }
+        }
+
         ::selection { color: white; background: #ea580c; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #334155; }
         
-        /* Smooth scroll behavior */
         html {
           scroll-behavior: smooth;
         }

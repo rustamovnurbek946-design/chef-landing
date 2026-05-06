@@ -54,7 +54,7 @@ export default function Recipes() {
   );
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] dark:bg-gray-950 py-16 px-4 md:px-10 transition-colors duration-500">
+    <div className="min-h-screen  dark:bg-gray-950 py-16 px-4 md:px-10 transition-colors duration-500">
       <div className="container mx-auto">
         {/* Header Section */}
         <div className="mb-16 text-center md:text-left">
@@ -107,7 +107,7 @@ export default function Recipes() {
         {/* View All Button */}
         <div className="text-center mt-16">
           <Link
-            to="/all-recipes"
+            to="/recipes"
             className="inline-flex items-center gap-3 px-8 py-4 bg-gray-900 dark:bg-white hover:bg-red-600 dark:hover:bg-red-600 text-white dark:text-gray-900 hover:text-white rounded-full font-bold transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl"
           >
             {t('viewAllRecipes')}

@@ -51,7 +51,7 @@ export default function Categories() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 bg-[#F5F5F7] dark:bg-gray-900 overflow-hidden text-[#1d1d1f] dark:text-white transition-colors duration-500">
+    <section className="py-24  overflow-hidden text-[#1d1d1f] dark:text-white transition-colors duration-500">
       <div className="container mx-auto px-4">
         
         {/* Sarlavha - Apple Style Typography */}

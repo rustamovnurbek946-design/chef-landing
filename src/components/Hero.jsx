@@ -54,7 +54,7 @@ export default function Hero() {
   const words = welcomeText.split(" ");
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950 transition-colors duration-500">
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden  transition-colors duration-500">
       {/* 1. Background */}
       <motion.div
         style={{ y: yBg, opacity: opacityBg }}
@@ -124,7 +124,7 @@ export default function Hero() {
             >
               <Link
                 to="/recipes"
-                className="group inline-flex items-center justify-center gap-3 bg-gray-950 dark:bg-white hover:bg-red-600 dark:hover:bg-red-600 text-white dark:text-gray-950 hover:text-white font-bold px-10 py-4 rounded-full shadow-2xl shadow-gray-300 dark:shadow-gray-800 transition-all duration-300 hover:-translate-y-1.5 active:scale-95 text-base md:text-lg"
+                className="group inline-flex items-center justify-center gap-3 bg-gray-950 dark:bg-white hover:bg-red-600 dark:hover:bg-red-600 text-black dark:text-gray-950 hover:text-white font-bold px-10 py-4 rounded-full shadow-2xl shadow-gray-300 dark:shadow-gray-800 transition-all duration-300 hover:-translate-y-1.5 active:scale-95 text-base md:text-lg"
               >
                 {t("startCooking")}
                 <motion.span
@@ -136,7 +136,7 @@ export default function Hero() {
                 </motion.span>
               </Link>
               <Link
-                to="/about"
+                to="/recipes"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-700 hover:border-gray-900 dark:hover:border-red-500 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 text-base md:text-lg"
               >
                 {t("ourStory")}

@@ -89,7 +89,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="relative bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white pt-20 pb-8 mt-20">
+      <footer className="relative  from-gray-950 via-gray-900 to-gray-950 text-white pt-20 pb-8 mt-20">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-0 w-96 h-96 bg-red-500 rounded-full filter blur-3xl animate-pulse" />
@@ -277,17 +277,6 @@ export default function Footer() {
                   <GlobeAltIcon className="h-4 w-4" />
                   {t("cookies")}
                 </a>
-              </div>
-
-              {/* Payment Methods */}
-              <div className="flex items-center gap-3">
-                <span className="text-xs text-gray-600">{t("securePayment")}</span>
-                <div className="flex gap-2">
-                  <div className="w-10 h-6 bg-white/10 rounded text-xs flex items-center justify-center font-bold hover:bg-red-500/20 transition-colors">Visa</div>
-                  <div className="w-10 h-6 bg-white/10 rounded text-xs flex items-center justify-center font-bold hover:bg-red-500/20 transition-colors">MC</div>
-                  <div className="w-10 h-6 bg-white/10 rounded text-xs flex items-center justify-center font-bold hover:bg-red-500/20 transition-colors">PayPal</div>
-                  <div className="w-10 h-6 bg-white/10 rounded text-xs flex items-center justify-center font-bold hover:bg-red-500/20 transition-colors">Apple</div>
-                </div>
               </div>
             </div>
           </motion.div>
