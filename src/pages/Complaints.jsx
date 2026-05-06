@@ -43,18 +43,18 @@ const Complaints = () => {
   ];
 
   const faqItems = [
-    { id: 1, question: t("faq.q1"), answer: t("faq.a1"), tags: [t("searchTags.search"), t("searchTags.recipes")] },
-    { id: 2, question: t("faq.q2"), answer: t("faq.a2"), tags: [t("searchTags.moderation")] },
-    { id: 3, question: t("faq.q3"), answer: t("faq.a3"), tags: [t("searchTags.security")] },
-    { id: 4, question: t("faq.q4"), answer: t("faq.a4"), tags: [t("searchTags.payment"), t("searchTags.refund")] },
-    { id: 5, question: t("faq.q5"), answer: t("faq.a5"), tags: [t("searchTags.features")] },
-    { id: 6, question: t("faq.q6"), answer: t("faq.a6"), tags: [t("searchTags.account")] },
-    { id: 7, question: t("faq.q7"), answer: t("faq.a7"), tags: [t("searchTags.business")] },
-    { id: 8, question: t("faq.q8"), answer: t("faq.a8"), tags: [t("searchTags.offline")] },
-    { id: 9, question: t("faq.q9"), answer: t("faq.a9"), tags: [t("searchTags.verification")] },
-    { id: 10, question: t("faq.q10"), answer: t("faq.a10"), tags: [t("searchTags.content")] },
-    { id: 11, question: t("faq.q11"), answer: t("faq.a11"), tags: [t("searchTags.mobile")] },
-    { id: 12, question: t("faq.q12"), answer: t("faq.a12"), tags: [t("searchTags.community")] },
+    { id: 1, question: "Как найти идеальный рецепт?", answer: "Наш алгоритм подбирает рецепты на основе ваших предпочтений. Используйте расширенные фильтры для поиска по ингредиентам, времени приготовления и сложности.", tags: ["Поиск", "Рецепты"] },
+    { id: 2, question: "Модерация контента: сколько ждать?", answer: "Обычно проверка занимает от 2 до 24 часов. Наши эксперты проверяют точность граммовки и качество фотографий для поддержания высокого стандарта сообщества.", tags: ["Модерация"] },
+    { id: 3, question: "Как защищены мои личные данные?", answer: "Мы используем сквозное шифрование и протоколы TLS 1.3. Ваши данные никогда не передаются третьим лицам без вашего явного согласия.", tags: ["Безопасность"] },
+    { id: 4, question: "Проблемы с оплатой подписки?", answer: "Если транзакция не удалась, проверьте лимиты вашей карты или попробуйте альтернативный метод оплаты (Google Pay/Apple Pay). Возврат возможен в течение 14 дней.", tags: ["Оплата", "Refund"] },
+    { id: 5, question: "Можно ли экспортировать список покупок?", answer: "Да! Внутри каждого рецепта есть кнопка 'Экспорт', которая позволяет отправить список ингредиентов в Telegram, WhatsApp или сохранить в PDF.", tags: ["Функции"] },
+    { id: 6, question: "Как удалить старый рецепт?", answer: "Зайдите в 'Мои рецепты', выберите нужный и нажмите на иконку архива. Полное удаление доступно через меню настроек конфиденциальности.", tags: ["Аккаунт"] },
+    { id: 7, question: "Сотрудничество для брендов?", answer: "Мы всегда открыты к партнерству. Напишите нам на business@chefbook.com с темой 'Partnership', и наш менеджер свяжется с вами.", tags: ["Бизнес"] },
+    { id: 8, question: "Работает ли приложение офлайн?", answer: "Избранные рецепты сохраняются в кэш вашего устройства. Вы сможете просматривать шаги приготовления даже без доступа к интернету.", tags: ["Офлайн"] },
+    { id: 9, question: "Как стать верифицированным шефом?", answer: "Вам нужно опубликовать минимум 15 уникальных рецептов с рейтингом выше 4.5 звезд. После этого появится кнопка подачи заявки.", tags: ["Верификация"] },
+    { id: 10, question: "Где хранятся мои черновики?", answer: "Все неопубликованные рецепты автоматически сохраняются в облаке и доступны в разделе 'Черновики' вашего личного кабинета.", tags: ["Контент"] },
+    { id: 11, question: "Есть ли мобильное приложение?", answer: "Да, мы доступны в App Store и Google Play. Мобильная версия поддерживает push-уведомления о новых комментариях к вашим блюдам.", tags: ["Mobile"] },
+    { id: 12, question: "Как сообщить об оскорблении?", answer: "Нажмите на три точки рядом с комментарием и выберите 'Пожаловаться'. Наша команда рассмотрит жалобу в приоритетном порядке.", tags: ["Community"] },
   ];
 
   const filteredFaqs = faqItems.filter(f => 
@@ -64,16 +64,16 @@ const Complaints = () => {
 
   // Bottom stats data
   const statsData = [
-    { icon: <Users size={28} />, value: "50K+", label: t("activeChefs"), color: "from-blue-500 to-cyan-500" },
-    { icon: <HeartHandshake size={28} />, value: "99.9%", label: t("satisfiedClients"), color: "from-rose-500 to-pink-500" },
-    { icon: <ChefHat size={28} />, value: "15K+", label: t("recipesInDatabase"), color: "from-orange-500 to-red-500" },
-    { icon: <Star size={28} />, value: "4.8/5", label: t("averageRating"), color: "from-yellow-500 to-amber-500" },
+    { icon: <Users size={28} />, value: "50K+", label: "Активных поваров", color: "from-blue-500 to-cyan-500" },
+    { icon: <HeartHandshake size={28} />, value: "99.9%", label: "Довольных клиентов", color: "from-rose-500 to-pink-500" },
+    { icon: <ChefHat size={28} />, value: "15K+", label: "Рецептов в базе", color: "from-orange-500 to-red-500" },
+    { icon: <Star size={28} />, value: "4.8/5", label: "Средний рейтинг", color: "from-yellow-500 to-amber-500" },
   ];
 
   const testimonials = [
-    { name: t("testimonials.name1"), text: t("testimonials.text1"), rating: 5, role: t("testimonials.role1") },
-    { name: t("testimonials.name2"), text: t("testimonials.text2"), rating: 5, role: t("testimonials.role2") },
-    { name: t("testimonials.name3"), text: t("testimonials.text3"), rating: 5, role: t("testimonials.role3") },
+    { name: "Анна К.", text: "Быстро решили мою проблему с оплатой! Спасибо команде ChefBook 🙌", rating: 5, role: "Премиум пользователь" },
+    { name: "Дмитрий В.", text: "Лучшая служба поддержки среди всех кулинарных приложений. Отвечают за 5 минут!", rating: 5, role: "Шеф-повар" },
+    { name: "Елена М.", text: "Помогли восстановить доступ к аккаунту за 10 минут. Очень профессионально!", rating: 5, role: "Домашний кулинар" },
   ];
 
   const handleInputChange = (e) => {
@@ -109,21 +109,21 @@ const Complaints = () => {
         <div className="max-w-5xl mx-auto text-center mb-16">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
             <ShieldCheck className="text-orange-400" size={16} />
-            <span className="text-sm font-medium text-slate-300">{t("supportCenter")}</span>
+            <span className="text-sm font-medium text-slate-300">Центр поддержки ChefBook 2.0</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-6xl md:text-8xl font-black mb-8 tracking-tight">
-            {t("haveQuestions")} <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">?</span>
+            Есть <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">вопросы?</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            {t("weCreateBest")}
+            Мы создаем лучший кулинарный опыт. Если что-то идет не так, наша команда готова помочь вам 24/7.
           </motion.p>
         </div>
 
         {/* Dynamic Tabs Navigation */}
         <div className="max-w-fit mx-auto mb-20 p-2 bg-slate-900/50 backdrop-blur-2xl rounded-[2rem] border border-white/10 flex gap-2">
           {[
-            { id: "submit", label: t("leaveComplaint"), icon: <Send size={18} /> },
-            { id: "faq", label: t("knowledgeBase"), icon: <HelpCircle size={18} /> }
+            { id: "submit", label: "Оставить жалобу", icon: <Send size={18} /> },
+            { id: "faq", label: "База знаний", icon: <HelpCircle size={18} /> }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -150,15 +150,15 @@ const Complaints = () => {
                 <form onSubmit={onFormSubmit} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="space-y-2">
-                      <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">{t("yourName")}</label>
+                      <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Ваше Имя</label>
                       <input 
                         type="text" required name="name" value={formData.name} onChange={handleInputChange}
                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all placeholder:text-slate-600"
-                        placeholder="Alexander Chef"
+                        placeholder="Александр Шеф"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">{t("email")}</label>
+                      <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Email</label>
                       <input 
                         type="email" required name="email" value={formData.email} onChange={handleInputChange}
                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all placeholder:text-slate-600"
@@ -168,7 +168,7 @@ const Complaints = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">{t("complaintCategory")}</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Категория обращения</label>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {categories.map((cat) => (
                         <button
@@ -188,7 +188,7 @@ const Complaints = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">{t("subject")}</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Тема</label>
                     <input 
                       type="text" required name="subject" value={formData.subject} onChange={handleInputChange}
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-orange-500 transition-all"
@@ -196,11 +196,11 @@ const Complaints = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">{t("situationDescription")}</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-2">Описание ситуации</label>
                     <textarea 
                       required name="description" value={formData.description} onChange={handleInputChange} rows="6"
                       className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-orange-500 transition-all resize-none"
-                      placeholder={t("tellUsDetails")}
+                      placeholder="Расскажите нам подробно..."
                     />
                   </div>
 
@@ -210,7 +210,7 @@ const Complaints = () => {
                     className="w-full py-5 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl font-black text-lg uppercase tracking-[0.2em] relative overflow-hidden group"
                   >
                     <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                    {submitted ? t("sent") : t("sendRequest")}
+                    {submitted ? "Отправлено!" : "Отправить запрос"}
                   </motion.button>
                 </form>
               </div>
@@ -219,23 +219,23 @@ const Complaints = () => {
               <div className="lg:col-span-5 space-y-8">
                 <div className="p-8 bg-gradient-to-br from-indigo-600 to-blue-700 rounded-[2.5rem] shadow-xl relative overflow-hidden group">
                   <div className="absolute top-[-20%] right-[-20%] w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
-                  <h3 className="text-2xl font-bold mb-4">{t("haveQuestionsShort")}</h3>
-                  <p className="text-indigo-100/80 mb-8 leading-relaxed">{t("weReadyAnswer")}</p>
+                  <h3 className="text-2xl font-bold mb-4">Есть вопросы?</h3>
+                  <p className="text-indigo-100/80 mb-8 leading-relaxed">Мы готовы ответить на все ваши вопросы в месте под названием база знаний</p>
                   <button 
                     onClick={() => setActiveTab('faq')}
                     className="flex items-center gap-3 px-6 py-3 bg-white text-indigo-700 rounded-xl font-bold hover:bg-indigo-50 transition-colors"
                   >
                     <MessageSquare size={20} />
-                    {t("openKnowledgeBase")}
+                    Открыть базу знаний
                   </button>
                 </div>
 
                 <div className="p-8 bg-slate-900/50 border border-white/10 rounded-[2.5rem] space-y-6">
-                  <h4 className="text-sm font-bold uppercase tracking-[0.3em] text-orange-500">{t("directContacts")}</h4>
+                  <h4 className="text-sm font-bold uppercase tracking-[0.3em] text-orange-500">Прямые контакты</h4>
                   {[
                     { icon: <Mail />, title: "Email", val: "support@chefbook.com" },
-                    { icon: <Phone />, title: "Telefon", val: "+998 71 200 00 00" },
-                    { icon: <MapPin />, title: t("office"), val: "Tashkent, IT-Park" }
+                    { icon: <Phone />, title: "Телефон", val: "+998 71 200 00 00" },
+                    { icon: <MapPin />, title: "Офис", val: "Ташкент, IT-Park" }
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-4 group cursor-pointer">
                       <div className="p-3 bg-white/5 rounded-lg group-hover:bg-orange-500 transition-colors">{item.icon}</div>
@@ -259,7 +259,7 @@ const Complaints = () => {
                 <input 
                   type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-[2rem] pl-16 pr-8 py-6 text-xl focus:outline-none focus:ring-4 focus:ring-orange-500/20 focus:border-orange-500 transition-all backdrop-blur-xl"
-                  placeholder={t("searchKnowledgeBase")}
+                  placeholder="Поиск по базе знаний..."
                 />
               </div>
 
@@ -300,7 +300,9 @@ const Complaints = () => {
           )}
         </AnimatePresence>
 
-        {/* ============= STATS SECTION ============= */}
+        {/* ============= YANGI ANIMATSIYALI PASTKI QISM ============= */}
+        
+        {/* Stats Counter Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -316,10 +318,10 @@ const Complaints = () => {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-sm font-medium mb-4">
               <Award size={16} />
-              {t("ourAchievements")}
+              Наши достижения
             </span>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-              {t("weInNumbers")}
+              Мы в цифрах
             </h2>
           </motion.div>
 
@@ -369,10 +371,10 @@ const Complaints = () => {
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-4">
               <HeartHandshake size={16} />
-              {t("whatClientsSay")}
+              Отзывы пользователей
             </span>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-              {t("whatClientsSay")}
+              Что говорят наши клиенты
             </h2>
           </motion.div>
 
@@ -416,14 +418,14 @@ const Complaints = () => {
           </div>
         </motion.div>
 
-        {/* Floating Background Visuals */}
+        {/* Floating Background Visuals - Yangilangan VA YAXSHI KO'RINADIGAN QILIB */}
         <div className="max-w-7xl mx-auto mt-40">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: <Camera size={32} />, title: t("photoRecipes"), desc: t("uploadYourMasterpieces"), color: "from-pink-500 to-rose-500" },
-              { icon: <Award size={32} />, title: t("becomeVerified"), desc: t("becomeVerified"), color: "from-yellow-500 to-amber-500" },
-              { icon: <Users size={32} />, title: t("communityMessage"), desc: t("communityMessage"), color: "from-green-500 to-emerald-500" },
-              { icon: <Sparkles size={32} />, title: t("aiRecipes"), desc: t("artificialIntelligence"), color: "from-purple-500 to-indigo-500" },
+              { icon: <Camera size={32} />, title: "Фото рецептов", desc: "Загружайте свои шедевры", color: "from-pink-500 to-rose-500" },
+              { icon: <Award size={32} />, title: "Шеф-повара", desc: "Станьте верифицированным", color: "from-yellow-500 to-amber-500" },
+              { icon: <Users size={32} />, title: "Сообщество", desc: "Общайтесь с единомышленниками", color: "from-green-500 to-emerald-500" },
+              { icon: <Sparkles size={32} />, title: "AI рецепты", desc: "Искусственный интеллект", color: "from-purple-500 to-indigo-500" },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -471,15 +473,15 @@ const Complaints = () => {
               transition={{ duration: 4, repeat: Infinity }}
               className="absolute top-10 right-10 w-20 h-20 bg-orange-500/30 rounded-full blur-3xl"
             />
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{t("readyToStartCooking")}</h3>
-            <p className="text-slate-300 mb-8">{t("joinChefBookToday")}</p>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Готовы начать готовить?</h3>
+            <p className="text-slate-300 mb-8">Присоединяйтесь к сообществу ChefBook уже сегодня</p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.location.href = "/recipes"}
               className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl font-bold text-white shadow-lg hover:shadow-orange-500/30 transition-all"
             >
-              {t("startCookingBtn")}
+              Начать готовить →
             </motion.button>
           </div>
         </motion.div>
@@ -488,6 +490,7 @@ const Complaints = () => {
 
       <Footer />
 
+      {/* Custom Styles for Hidden Browser UI */}
       <style jsx global>{`
         details > summary::-webkit-details-marker { display: none; }
         ::selection { color: white; background: #ea580c; }
@@ -495,7 +498,11 @@ const Complaints = () => {
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #334155; }
-        html { scroll-behavior: smooth; }
+        
+        /* Smooth scroll behavior */
+        html {
+          scroll-behavior: smooth;
+        }
       `}</style>
     </div>
   );

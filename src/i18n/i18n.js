@@ -214,75 +214,6 @@ const resources = {
       },
     },
 
-    //Complaints
-    general: "General",
-    technicalProblem: "Technical Problem",
-    recipeProblem: "Recipe Problem",
-    wrongContent: "Wrong Content",
-    supportCenter: "Support Center",
-    haveQuestions: "Have questions?",
-    weCreateBest:
-      "We create the best culinary experience. If something goes wrong, our team is ready to help you 24/7.",
-    leaveComplaint: "Leave a complaint",
-    knowledgeBase: "Knowledge Base",
-    yourName: "Your Name",
-    email: "Email",
-    complaintCategory: "Complaint Category",
-    subject: "Subject",
-    situationDescription: "Situation Description",
-    tellUsDetails: "Tell us in detail...",
-    sendRequest: "Send Request",
-    sent: "Sent!",
-    haveQuestionsShort: "Have questions?",
-    weReadyAnswer:
-      "We are ready to answer all your questions in a place called the knowledge base",
-    openKnowledgeBase: "Open Knowledge Base",
-    directContacts: "Direct Contacts",
-    office: "Office",
-    searchKnowledgeBase: "Search knowledge base...",
-    ourAchievements: "Our Achievements",
-    weInNumbers: "We in numbers",
-    activeChefs: "Active Chefs",
-    satisfiedClients: "Satisfied Clients",
-    recipesInDatabase: "Recipes in Database",
-    averageRating: "Average Rating",
-    whatClientsSay: "What our clients say",
-    photoRecipes: "Photo Recipes",
-    uploadYourMasterpieces: "Upload your masterpieces",
-    becomeVerified: "Become verified",
-    communityMessage: "Connect with like-minded people",
-    aiRecipes: "AI Recipes",
-    artificialIntelligence: "Artificial Intelligence",
-    readyToStartCooking: "Ready to start cooking?",
-    joinChefBookToday: "Join the ChefBook community today",
-    startCookingBtn: "Start Cooking →",
-
-    faq: {
-      answer1:
-        "Our algorithm selects recipes based on your preferences. Use advanced filters to search by ingredients, cooking time, and difficulty.",
-      answer2:
-        "Verification usually takes 2 to 24 hours. Our experts check gram accuracy and photo quality to maintain the community's high standards.",
-      answer3:
-        "We use end-to-end encryption and TLS 1.3 protocols. Your data is never shared with third parties without your explicit consent.",
-      answer4:
-        "If the transaction fails, check your card limits or try an alternative payment method (Google Pay/Apple Pay). Refunds are possible within 14 days.",
-      answer5:
-        "Yes! Inside each recipe there is an 'Export' button that allows you to send the ingredient list to Telegram, WhatsApp, or save as PDF.",
-      answer6:
-        "Go to 'My Recipes', select the one you want and click the archive icon. Complete deletion is available through the privacy settings menu.",
-      answer7:
-        "We are always open to partnerships. Write to us at business@chefbook.com with the subject 'Partnership', and our manager will contact you.",
-      answer8:
-        "Favorite recipes are saved in your device's cache. You can view cooking steps even without internet access.",
-      answer9:
-        "You need to publish at least 15 unique recipes with a rating above 4.5 stars. After that, an application button will appear.",
-      answer10:
-        "All unpublished recipes are automatically saved in the cloud and are available in the 'Drafts' section of your personal account.",
-      answer11:
-        "Yes, we are available on the App Store and Google Play. The mobile version supports push notifications about new comments on your dishes.",
-      answer12:
-        "Click the three dots next to the comment and select 'Report'. Our team will review the complaint as a priority.",
-    },
 
     searchTags: {
       search: "Search",
@@ -329,46 +260,6 @@ const resources = {
     uzbek: "Uzbek",
     russian: "Russian",
     help: "Help",
-    faq: {
-      q1: "How to find the perfect recipe?",
-      a1: "Our algorithm selects recipes based on your preferences. Use advanced filters to search by ingredients, cooking time, and difficulty.",
-      q2: "Content moderation: how long to wait?",
-      a2: "Verification usually takes 2 to 24 hours. Our experts check gram accuracy and photo quality to maintain the community's high standards.",
-      q3: "How is my personal data protected?",
-      a3: "We use end-to-end encryption and TLS 1.3 protocols. Your data is never shared with third parties without your explicit consent.",
-      q4: "Problems with subscription payment?",
-      a4: "If the transaction fails, check your card limits or try an alternative payment method (Google Pay/Apple Pay). Refunds are possible within 14 days.",
-      q5: "Can I export the shopping list?",
-      a5: "Yes! Inside each recipe there is an 'Export' button that allows you to send the ingredient list to Telegram, WhatsApp, or save as PDF.",
-      q6: "How to delete an old recipe?",
-      a6: "Go to 'My Recipes', select the one you want and click the archive icon. Complete deletion is available through the privacy settings menu.",
-      q7: "Partnership for brands?",
-      a7: "We are always open to partnerships. Write to us at business@chefbook.com with the subject 'Partnership', and our manager will contact you.",
-      q8: "Does the app work offline?",
-      a8: "Favorite recipes are saved in your device's cache. You can view cooking steps even without internet access.",
-      q9: "How to become a verified chef?",
-      a9: "You need to publish at least 15 unique recipes with a rating above 4.5 stars. After that, an application button will appear.",
-      q10: "Where are my drafts stored?",
-      a10: "All unpublished recipes are automatically saved in the cloud and are available in the 'Drafts' section of your personal account.",
-      q11: "Is there a mobile app?",
-      a11: "Yes, we are available on the App Store and Google Play. The mobile version supports push notifications about new comments on your dishes.",
-      q12: "How to report an insult?",
-      a12: "Click the three dots next to the comment and select 'Report'. Our team will review the complaint as a priority.",
-    },
-    testimonials: {
-      name1: "Anna K.",
-      text1:
-        "They quickly resolved my payment issue! Thanks to the ChefBook team 🙌",
-      role1: "Premium User",
-      name2: "Dmitry V.",
-      text2:
-        "The best support service among all cooking apps. They respond within 5 minutes!",
-      role2: "Chef",
-      name3: "Elena M.",
-      text3:
-        "They helped restore access to my account in 10 minutes. Very professional!",
-      role3: "Home Cook",
-    },
   },
 
   uz: {
@@ -584,77 +475,6 @@ const resources = {
         equipment: "Oshxona jihozlari",
       },
     },
-
-    //Complaints
-    general: "Umumiy",
-    technicalProblem: "Texnik muammo",
-    recipeProblem: "Retsept muammosi",
-    wrongContent: "Noto'g'ri kontent",
-    supportCenter: "Qo'llab-quvvatlash markazi",
-    haveQuestions: "Savollaringiz bormi?",
-    weCreateBest:
-      "Eng yaxshi pazandachilik tajribasini yaratamiz. Agar biror narsa noto'g'ri bo'lsa, jamoamiz 24/7 yordam berishga tayyor.",
-    leaveComplaint: "Shikoyat qoldirish",
-    knowledgeBase: "Bilimlar bazasi",
-    yourName: "Sizning Ismingiz",
-    email: "Email",
-    complaintCategory: "Murojaat kategoriyasi",
-    subject: "Mavzu",
-    situationDescription: "Vaziyat tavsifi",
-    tellUsDetails: "Bizga batafsil aytib bering...",
-    sendRequest: "So'rov yuborish",
-    sent: "Yuborildi!",
-    haveQuestionsShort: "Savollaringiz bormi?",
-    weReadyAnswer:
-      "Bilimlar bazasi deb nomlangan joyda barcha savollaringizga javob berishga tayyormiz",
-    openKnowledgeBase: "Bilimlar bazasini ochish",
-    directContacts: "To'g'ridan-to'g'ri kontaktlar",
-    office: "Ofis",
-    searchKnowledgeBase: "Bilimlar bazasidan qidirish...",
-    ourAchievements: "Yutuqlarimiz",
-    weInNumbers: "Biz raqamlarda",
-    activeChefs: "Faol oshpazlar",
-    satisfiedClients: "Mamnun mijozlar",
-    recipesInDatabase: "Bazadagi retseptlar",
-    averageRating: "O'rtacha reyting",
-    whatClientsSay: "Mijozlarimiz nimadeyishadi",
-    photoRecipes: "Foto retseptlar",
-    uploadYourMasterpieces: "O'z durdonalaringizni yuklang",
-    becomeVerified: "Tasdiqlang",
-    communityMessage: "Hamfikrlar bilan muloqot qiling",
-    aiRecipes: "AI retseptlar",
-    artificialIntelligence: "Sun'iy intellekt",
-    readyToStartCooking: "Pishirishni boshlashga tayyormisiz?",
-    joinChefBookToday: "ChefBook jamiyatiga bugun qo'shiling",
-    startCookingBtn: "Pishirishni boshlash →",
-
-    faq: {
-      answer1:
-        "Bizning algoritm sizning afzalliklaringiz asosida retseptlarni tanlaydi. Ingredientlar, pishirish vaqti va murakkablik bo'yicha qidirish uchun kengaytirilgan filtrlardan foydalaning.",
-      answer2:
-        "Odatda tekshiruv 2 dan 24 soatgacha davom etadi. Bizning ekspertlarimiz jamiyatning yuqori standartini saqlash uchun gramm aniqligi va fotosuratlar sifatini tekshiradilar.",
-      answer3:
-        "Biz end-to-end shifrlash va TLS 1.3 protokollaridan foydalanamiz. Sizning ma'lumotlaringiz sizning aniq roziligingizsiz hech qachon uchinchi tomonlarga berilmaydi.",
-      answer4:
-        "Agar tranzaksiya bajarilmasa, kartangiz cheklovlarini tekshiring yoki muqobil to'lov usulini (Google Pay/Apple Pay) sinab ko'ring. 14 kun ichida qaytarish mumkin.",
-      answer5:
-        "Ha! Har bir retsept ichida 'Eksport' tugmasi mavjud bo'lib, ingredientlar ro'yxatini Telegram, WhatsApp yoki PDFga yuborish imkonini beradi.",
-      answer6:
-        "'Mening retseptlarim' ga o'ting, keraklisini tanlang va arxiv belgisini bosing. To'liq o'chirish maxfiylik sozlamalari menyusi orqali mavjud.",
-      answer7:
-        "Biz hamkorlikka doim ochiqmiz. 'Partnership' mavzusi bilan business@chefbook.com manziliga yozing, menejerimiz siz bilan bog'lanadi.",
-      answer8:
-        "Sevimli retseptlar qurilmangiz keshida saqlanadi. Internetga kirish imkonisiz ham pishirish bosqichlarini ko'rishingiz mumkin.",
-      answer9:
-        "Kamida 15 ta noyob retseptni 4.5 yulduzdan yuqori reyting bilan nashr etishingiz kerak. Shundan so'ng ariza topshirish tugmasi paydo bo'ladi.",
-      answer10:
-        "Barcha nashr etilmagan retseptlar avtomatik ravishda bulutda saqlanadi va shaxsiy kabinetingizning 'Qoralamalar' bo'limida mavjud.",
-      answer11:
-        "Ha, biz App Store va Google Playda mavjudmiz. Mobil versiya sizning taomlaringizga yangi sharhlar haqida push-bildirishnomalarni qo'llab-quvvatlaydi.",
-      answer12:
-        "Sharh yonidagi uch nuqtani bosing va 'Shikoyat qilish' ni tanlang. Jamoamiz shikoyatni ustuvor tartibda ko'rib chiqadi.",
-    },
-
     searchTags: {
       search: "Qidiruv",
       recipes: "Retseptlar",
@@ -700,46 +520,6 @@ const resources = {
     uzbek: "O'zbek",
     russian: "Rus",
     help: "Yordam",
-    faq: {
-      q1: "Ideal retseptni qanday topish mumkin?",
-      a1: "Bizning algoritm sizning afzalliklaringiz asosida retseptlarni tanlaydi. Ingredientlar, pishirish vaqti va murakkablik bo'yicha qidirish uchun kengaytirilgan filtrlardan foydalaning.",
-      q2: "Kontent moderatsiyasi: qancha kutish kerak?",
-      a2: "Odatda tekshiruv 2 dan 24 soatgacha davom etadi. Bizning ekspertlarimiz jamiyatning yuqori standartini saqlash uchun gramm aniqligi va fotosuratlar sifatini tekshiradilar.",
-      q3: "Shaxsiy ma'lumotlarim qanday himoyalangan?",
-      a3: "Biz end-to-end shifrlash va TLS 1.3 protokollaridan foydalanamiz. Sizning ma'lumotlaringiz sizning aniq roziligingizsiz hech qachon uchinchi tomonlarga berilmaydi.",
-      q4: "Obuna to'lovi bilan bog'liq muammolar?",
-      a4: "Agar tranzaksiya bajarilmasa, kartangiz cheklovlarini tekshiring yoki muqobil to'lov usulini (Google Pay/Apple Pay) sinab ko'ring. 14 kun ichida qaytarish mumkin.",
-      q5: "Xarid ro'yxatini eksport qilsa bo'ladimi?",
-      a5: "Ha! Har bir retsept ichida 'Eksport' tugmasi mavjud bo'lib, ingredientlar ro'yxatini Telegram, WhatsApp yoki PDFga yuborish imkonini beradi.",
-      q6: "Eski retseptni qanday o'chirish mumkin?",
-      a6: "'Mening retseptlarim' ga o'ting, keraklisini tanlang va arxiv belgisini bosing. To'liq o'chirish maxfiylik sozlamalari menyusi orqali mavjud.",
-      q7: "Brendlar uchun hamkorlik?",
-      a7: "Biz hamkorlikka doim ochiqmiz. 'Partnership' mavzusi bilan business@chefbook.com manziliga yozing, menejerimiz siz bilan bog'lanadi.",
-      q8: "Ilova oflayn rejimda ishlaydimi?",
-      a8: "Sevimli retseptlar qurilmangiz keshida saqlanadi. Internetga kirish imkonisiz ham pishirish bosqichlarini ko'rishingiz mumkin.",
-      q9: "Qanday qilib tasdiqlangan oshpaz bo'lish mumkin?",
-      a9: "Kamida 15 ta noyob retseptni 4.5 yulduzdan yuqori reyting bilan nashr etishingiz kerak. Shundan so'ng ariza topshirish tugmasi paydo bo'ladi.",
-      q10: "Qoralamalarim qayerda saqlanadi?",
-      a10: "Barcha nashr etilmagan retseptlar avtomatik ravishda bulutda saqlanadi va shaxsiy kabinetingizning 'Qoralamalar' bo'limida mavjud.",
-      q11: "Mobil ilova bormi?",
-      a11: "Ha, biz App Store va Google Playda mavjudmiz. Mobil versiya sizning taomlaringizga yangi sharhlar haqida push-bildirishnomalarni qo'llab-quvvatlaydi.",
-      q12: "Haqorat haqida qanday xabar berish mumkin?",
-      a12: "Sharh yonidagi uch nuqtani bosing va 'Shikoyat qilish' ni tanlang. Jamoamiz shikoyatni ustuvor tartibda ko'rib chiqadi.",
-    },
-    testimonials: {
-      name1: "Anna K.",
-      text1:
-        "To'lov muammomni tezda hal qilishdi! ChefBook jamoasiga rahmat 🙌",
-      role1: "Premium foydalanuvchi",
-      name2: "Dmitriy V.",
-      text2:
-        "Barcha pazandachilik ilovalari orasida eng yaxshi qo'llab-quvvatlash xizmati. 5 daqiqa ichida javob berishadi!",
-      role2: "Oshpaz",
-      name3: "Elena M.",
-      text3:
-        "10 daqiqada akkauntimga kirishni tiklashga yordam berishdi. Juda professional!",
-      role3: "Uy oshpazi",
-    },
   },
 
   ru: {
@@ -953,77 +733,6 @@ const resources = {
         equipment: "Кухонное оборудование",
       },
     },
-
-    //Complaints
-    general: "Общее",
-    technicalProblem: "Техническая проблема",
-    recipeProblem: "Проблема с рецептом",
-    wrongContent: "Неверный контент",
-    supportCenter: "Центр поддержки",
-    haveQuestions: "Есть вопросы?",
-    weCreateBest:
-      "Мы создаем лучший кулинарный опыт. Если что-то идет не так, наша команда готова помочь вам 24/7.",
-    leaveComplaint: "Оставить жалобу",
-    knowledgeBase: "База знаний",
-    yourName: "Ваше Имя",
-    email: "Email",
-    complaintCategory: "Категория обращения",
-    subject: "Тема",
-    situationDescription: "Описание ситуации",
-    tellUsDetails: "Расскажите нам подробно...",
-    sendRequest: "Отправить запрос",
-    sent: "Отправлено!",
-    haveQuestionsShort: "Есть вопросы?",
-    weReadyAnswer:
-      "Мы готовы ответить на все ваши вопросы в месте под названием база знаний",
-    openKnowledgeBase: "Открыть базу знаний",
-    directContacts: "Прямые контакты",
-    office: "Офис",
-    searchKnowledgeBase: "Поиск по базе знаний...",
-    ourAchievements: "Наши достижения",
-    weInNumbers: "Мы в цифрах",
-    activeChefs: "Активных поваров",
-    satisfiedClients: "Довольных клиентов",
-    recipesInDatabase: "Рецептов в базе",
-    averageRating: "Средний рейтинг",
-    whatClientsSay: "Что говорят наши клиенты",
-    photoRecipes: "Фото рецептов",
-    uploadYourMasterpieces: "Загружайте свои шедевры",
-    becomeVerified: "Станьте верифицированным",
-    communityMessage: "Общайтесь с единомышленниками",
-    aiRecipes: "AI рецепты",
-    artificialIntelligence: "Искусственный интеллект",
-    readyToStartCooking: "Готовы начать готовить?",
-    joinChefBookToday: "Присоединяйтесь к сообществу ChefBook уже сегодня",
-    startCookingBtn: "Начать готовить →",
-
-    faq: {
-      answer1:
-        "Наш алгоритм подбирает рецепты на основе ваших предпочтений. Используйте расширенные фильтры для поиска по ингредиентам, времени приготовления и сложности.",
-      answer2:
-        "Обычно проверка занимает от 2 до 24 часов. Наши эксперты проверяют точность граммовки и качество фотографий для поддержания высокого стандарта сообщества.",
-      answer3:
-        "Мы используем сквозное шифрование и протоколы TLS 1.3. Ваши данные никогда не передаются третьим лицам без вашего явного согласия.",
-      answer4:
-        "Если транзакция не удалась, проверьте лимиты вашей карты или попробуйте альтернативный метод оплаты (Google Pay/Apple Pay). Возврат возможен в течение 14 дней.",
-      answer5:
-        "Да! Внутри каждого рецепта есть кнопка 'Экспорт', которая позволяет отправить список ингредиентов в Telegram, WhatsApp или сохранить в PDF.",
-      answer6:
-        "Зайдите в 'Мои рецепты', выберите нужный и нажмите на иконку архива. Полное удаление доступно через меню настроек конфиденциальности.",
-      answer7:
-        "Мы всегда открыты к партнерству. Напишите нам на business@chefbook.com с темой 'Partnership', и наш менеджер свяжется с вами.",
-      answer8:
-        "Избранные рецепты сохраняются в кэш вашего устройства. Вы сможете просматривать шаги приготовления даже без доступа к интернету.",
-      answer9:
-        "Вам нужно опубликовать минимум 15 уникальных рецептов с рейтингом выше 4.5 звезд. После этого появится кнопка подачи заявки.",
-      answer10:
-        "Все неопубликованные рецепты автоматически сохраняются в облаке и доступны в разделе 'Черновики' вашего личного кабинета.",
-      answer11:
-        "Да, мы доступны в App Store и Google Play. Мобильная версия поддерживает push-уведомления о новых комментариях к вашим блюдам.",
-      answer12:
-        "Нажмите на три точки рядом с комментарием и выберите 'Пожаловаться'. Наша команда рассмотрит жалобу в приоритетном порядке.",
-    },
-
     searchTags: {
       search: "Поиск",
       recipes: "Рецепты",
@@ -1068,47 +777,7 @@ const resources = {
     english: "Английский",
     uzbek: "Узбекский",
     russian: "Русский",
-    help: "Помощь",
-    faq: {
-      q1: "Как найти идеальный рецепт?",
-      a1: "Наш алгоритм подбирает рецепты на основе ваших предпочтений. Используйте расширенные фильтры для поиска по ингредиентам, времени приготовления и сложности.",
-      q2: "Модерация контента: сколько ждать?",
-      a2: "Обычно проверка занимает от 2 до 24 часов. Наши эксперты проверяют точность граммовки и качество фотографий для поддержания высокого стандарта сообщества.",
-      q3: "Как защищены мои личные данные?",
-      a3: "Мы используем сквозное шифрование и протоколы TLS 1.3. Ваши данные никогда не передаются третьим лицам без вашего явного согласия.",
-      q4: "Проблемы с оплатой подписки?",
-      a4: "Если транзакция не удалась, проверьте лимиты вашей карты или попробуйте альтернативный метод оплаты (Google Pay/Apple Pay). Возврат возможен в течение 14 дней.",
-      q5: "Можно ли экспортировать список покупок?",
-      a5: "Да! Внутри каждого рецепта есть кнопка 'Экспорт', которая позволяет отправить список ингредиентов в Telegram, WhatsApp или сохранить в PDF.",
-      q6: "Как удалить старый рецепт?",
-      a6: "Зайдите в 'Мои рецепты', выберите нужный и нажмите на иконку архива. Полное удаление доступно через меню настроек конфиденциальности.",
-      q7: "Сотрудничество для брендов?",
-      a7: "Мы всегда открыты к партнерству. Напишите нам на business@chefbook.com с темой 'Partnership', и наш менеджер свяжется с вами.",
-      q8: "Работает ли приложение офлайн?",
-      a8: "Избранные рецепты сохраняются в кэш вашего устройства. Вы сможете просматривать шаги приготовления даже без доступа к интернету.",
-      q9: "Как стать верифицированным шефом?",
-      a9: "Вам нужно опубликовать минимум 15 уникальных рецептов с рейтингом выше 4.5 звезд. После этого появится кнопка подачи заявки.",
-      q10: "Где хранятся мои черновики?",
-      a10: "Все неопубликованные рецепты автоматически сохраняются в облаке и доступны в разделе 'Черновики' вашего личного кабинета.",
-      q11: "Есть ли мобильное приложение?",
-      a11: "Да, мы доступны в App Store и Google Play. Мобильная версия поддерживает push-уведомления о новых комментариях к вашим блюдам.",
-      q12: "Как сообщить об оскорблении?",
-      a12: "Нажмите на три точки рядом с комментарием и выберите 'Пожаловаться'. Наша команда рассмотрит жалобу в приоритетном порядке.",
-    },
-    testimonials: {
-      name1: "Анна К.",
-      text1:
-        "Быстро решили мою проблему с оплатой! Спасибо команде ChefBook 🙌",
-      role1: "Премиум пользователь",
-      name2: "Дмитрий В.",
-      text2:
-        "Лучшая служба поддержки среди всех кулинарных приложений. Отвечают за 5 минут!",
-      role2: "Шеф-повар",
-      name3: "Елена М.",
-      text3:
-        "Помогли восстановить доступ к аккаунту за 10 минут. Очень профессионально!",
-      role3: "Домашний кулинар",
-    },
+    help: "Помощь"
   },
 };
 
