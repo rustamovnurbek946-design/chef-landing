@@ -1,0 +1,51 @@
+body.bg-gray {
+    background: #f3f4f6;
+}
+
+body.bg-dark {
+    background: #111827;
+}
+
+body.bg-sky {
+    background: #e0f2fe;
+}
+
+body.bg-slate {
+    background: #0f172a;
+}
+
+body.bg-gradient {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.theme-ocean {
+    --primary: #06b6d4;
+}
+
+.theme-sunset {
+    --primary: #f97316;
+}
+
+.theme-forest {
+    --primary: #16a34a;
+}
+
+.theme-purple {
+    --primary: #9333ea;
+}
+
+.theme-fire {
+    --primary: #ef4444;
+}
+
+.theme-neon {
+    --primary: #d946ef;
+}
+
+.theme-midnight {
+    --primary: midnightblue;
+}
+
+.theme-emerald {
+    --primary: #10b981;
+}
