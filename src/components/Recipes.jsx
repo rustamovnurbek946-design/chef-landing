@@ -1,6 +1,6 @@
+import instance from "../utils/axios";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import instance from "../utils/axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typography, IconButton, Button, Chip, Spinner } from "@material-tailwind/react";
 import {
